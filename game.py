@@ -1,7 +1,8 @@
 import pgzrun
 import time
-from pygame import mouse
-
+from pgzero.actor import Actor
+from pgzero.clock import schedule_interval
+from pgzero.builtins import *
 
 
 WIDTH = 1000
@@ -9,16 +10,8 @@ HEIGHT = 600
 TITLE = "Кликер"
 
 
-class Actor:
-    def collidepoint(self, pos):
-        pass
-
-    def draw(self):
-        pass
-
-
-kosmos = Actor("kosmos")  # черный фон
-fon1 = Actor((503, 300))  # фон для кликера
+kosmos = Actor("kosmos")
+fon1 = Actor("fon1 (3)",(503, 300))# фон для кликера
 con = Actor("krasa5", (500,325))  # крыса
 money = Actor("money1", (382, 100))  # деньги
 molni = Actor("molni", (462, 30))  # молния
@@ -65,7 +58,7 @@ price_4 = 20
 
 
 # отрисовка картин
-def draw(screen=None):
+def draw():
     if mode == "menu":
         meny.draw()
         play.draw()
@@ -157,9 +150,6 @@ def update(dt):
             can_click = True  # Разрешаем кликать
 
 
-# обработка кликов
-def schedule_interval(for_bonus_1, param):
-    pass
 
 
 def on_mouse_down(button, pos):
@@ -183,9 +173,8 @@ def on_mouse_down(button, pos):
                         energe -= 1  # Уменьшаем энергию на 1 при клике
                         if energe == 0:
                             can_click = False  # Запретить клики
-                            recovery_start = time.time()  # Забыть время начала восстановления
-
-    # Режим меню
+                            recovery_start = time.time()  # Забыть время начала восстановлени
+# Режим меню
     elif mode == "menu" and button == mouse.LEFT:
         if play.collidepoint(pos):
             mode = "play"
@@ -195,11 +184,11 @@ def on_mouse_down(button, pos):
         if nazad.collidepoint(pos):
             mode = "menu"
 
-    # кнопка в игре в магазин временный
+# кнопка в игре в магазин временный
     elif mode == "shop_2" and button == mouse.LEFT:
         if nazad3.collidepoint(pos):
             mode = "play"
-    # кнопка в игре
+# кнопка в игре
     elif mode == "shop" and button == mouse.LEFT:
         if nazad2.collidepoint(pos):
             mode = "play"
@@ -224,11 +213,11 @@ def on_mouse_down(button, pos):
                 can_click += 4
                 energy -= price_4
                 price_4 *= 2
-            # 2 окно в магазине
+#2 окно в магазине
         elif vpered.collidepoint(pos):
             mode = "menu_shop_2"
     elif mode == "menu_shop_2" and button == mouse.LEFT:
         if nazat.collidepoint(pos):
             mode = "shop"
-
 pgzrun.go()
+
