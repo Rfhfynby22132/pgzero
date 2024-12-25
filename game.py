@@ -1,5 +1,6 @@
 import pgzrun
 import time
+import string
 from pgzero.actor import Actor
 from pgzero.clock import schedule_interval
 from pgzero.builtins import *
@@ -80,8 +81,8 @@ def draw():
         vpered.draw()
         screen.draw.text("монеты", center=(40, 60), color="white", fontsize=20)
         screen.draw.text("энергия", center=(40, 10), color="white", fontsize=20)
-        screen.draw.text(energy, center=(100, 10), color="white", fontsize=20)
-        screen.draw.text(count, center=(100, 60), color="white", fontsize=20)
+        screen.draw.text(str(energy), center=(100, 10), color="white", fontsize=20)
+        screen.draw.text(str(count), center=(100, 60), color="white", fontsize=20)
         screen.draw.text("+5 монет за клик", center=(300, 200), color="white", fontsize=20)
         screen.draw.text("+5 энергии за клик", center=(700, 230), color="white", fontsize=18)
         screen.draw.text("X2", center=(150, 130), color="white", fontsize=40)
@@ -95,15 +96,15 @@ def draw():
         nazat.draw()
         screen.draw.text("монеты", center=(40, 60), color="white", fontsize=20)
         screen.draw.text("энергия", center=(40, 10), color="white", fontsize=20)
-        screen.draw.text(energy, center=(100, 10), color="white", fontsize=20)
-        screen.draw.text(count, center=(100, 60), color="white", fontsize=20)
+        screen.draw.text(str(energy), center=(100, 10), color="white", fontsize=20)
+        screen.draw.text(str(count), center=(100, 60), color="white", fontsize=20)
     if mode == "shop_2":
         menu_shop_3.draw()
         nazad2.draw()
         screen.draw.text("монеты", center=(40, 60), color="white", fontsize=20)
         screen.draw.text("энергия", center=(40, 10), color="white", fontsize=20)
-        screen.draw.text(energy, center=(100, 10), color="white", fontsize=20)
-        screen.draw.text(count, center=(100, 60), color="white", fontsize=20)
+        screen.draw.text(str(energy), center=(100, 10), color="white", fontsize=20)
+        screen.draw.text(str(count), center=(100, 60), color="white", fontsize=20)
     if mode == "play":
         kosmos.draw()
         fon1.draw()
@@ -113,9 +114,9 @@ def draw():
         moln.draw()
         shop.draw()
         shop_2.draw()
-        screen.draw.text(count, center=(460, 100), color="white", fontsize=28)
-        screen.draw.text(energy, center=(510, 30), color="white", fontsize=27)
-        screen.draw.text(energe, center=(378, 490), color="white", fontsize=18)
+        screen.draw.text(str(count), center=(460, 100), color="white", fontsize=28)
+        screen.draw.text(str(energy), center=(510, 30), color="white", fontsize=27)
+        screen.draw.text(str(energe), center=(378, 490), color="white", fontsize=18)
         if not can_click:
             screen.draw.text("Энергия нет! ", center=(378, 450), color="white", fontsize=16)
 
